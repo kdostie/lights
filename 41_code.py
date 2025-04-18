@@ -34,7 +34,7 @@ strip_0 = neopixel.NeoPixel(
     pixel_order=ORDER
 )
 
-def setColorWBrightness(r, g, b, bright)
+def setColorWBrightness(r, g, b, bright):
     r = int(r*bright)
     g = int(g*bright)
     b = int(b*bright)
