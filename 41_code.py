@@ -51,4 +51,4 @@ while True:
         SABER_COLOR = setColorWBrightness(RED,GREEN,BLUE,MAX_BRIGHTNESS)
         setPixelColor(i, SABER_COLOR)
         showAll()
-        sleep.time(0.001)
+        time.sleep(0.001)
