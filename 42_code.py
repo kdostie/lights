@@ -49,21 +49,36 @@ def showAll():
     strip_0.show()
 
 while True:
+    # First Time through the Loop do this
     if first_run == True:
+        # Wait 5s then start lighting pixels. Added to eliminate the 10 start up lit before creeping 
         time.sleep(5)
+        # Set the first run flag so this doesnt happen again
         first_run = False
+        SABER_COLOR = setColorWBrightness(RED,GREEN,BLUE,MAX_BRIGHTNESS)
+        
         for i in range(num_pixels):
-            SABER_COLOR = setColorWBrightness(RED,GREEN,BLUE,MAX_BRIGHTNESS)
+            # Set Pixel Color
             setPixelColor(i, SABER_COLOR)
+            # Update the Pixel
             showAll()
+            # Wait 1.75s to do the next pixel
             time.sleep(1.75)
+    #End of First Run
+# This part will run every 30s to pulse the lightsaber
+    # Wait 30s
     time.sleep(30)
+    # Update the Color to be at 25% brightness 
     SABER_COLOR = setColorWBrightness(RED,GREEN,BLUE,0.25)
+    # Loop Updates all pixels really quickly
     for i in range(num_pixels):
             setPixelColor(i, SABER_COLOR)
             showAll()
+    # Wait .5s
     time.sleep(.5)
+    # Update the Color to be at 25% brightness 
     SABER_COLOR = setColorWBrightness(RED,GREEN,BLUE,MAX_BRIGHTNESS)
+    # Loop Updates all pixels really quickly
     for i in range(num_pixels):
             setPixelColor(i, SABER_COLOR)
             showAll()
