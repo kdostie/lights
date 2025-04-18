@@ -9,12 +9,14 @@ import neopixel
 # On CircuitPlayground Express, and boards with built in status NeoPixel -> board.NEOPIXEL
 # Otherwise choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D1
 pixel_pin0 = board.A0
-
+pixel_pin1 = board.A1
+pixel_pin2 = board.A2
+pixel_pin3 = board.A3
 # On a Raspberry pi, use this instead, not all pins are supported
 # pixel_pin = board.D18
 
 # The number of NeoPixels
-num_pixels = 30
+num_pixels = 47
 
 RED = 30
 GREEN = 30
@@ -35,6 +37,27 @@ strip_0 = neopixel.NeoPixel(
     auto_write=False,
     pixel_order=ORDER
 )
+strip_1 = neopixel.NeoPixel(
+    pixel_pin1, 
+    num_pixels, 
+    brightness = MAX_BRIGHTNESS, 
+    auto_write=False,
+    pixel_order=ORDER
+)
+strip_2 = neopixel.NeoPixel(
+    pixel_pin2, 
+    num_pixels, 
+    brightness = MAX_BRIGHTNESS, 
+    auto_write=False,
+    pixel_order=ORDER
+)
+strip_3 = neopixel.NeoPixel(
+    pixel_pin3, 
+    num_pixels, 
+    brightness = MAX_BRIGHTNESS, 
+    auto_write=False,
+    pixel_order=ORDER
+)
 
 def setColorWBrightness(r, g, b, bright):
     r = int(r*bright)
@@ -44,9 +67,15 @@ def setColorWBrightness(r, g, b, bright):
 
 def setPixelColor(pos, color):
     strip_0[pos] = color
+    strip_1[pos] = color
+    strip_2[pos] = color
+    strip_3[pos] = color
 
 def showAll():
     strip_0.show()
+    strip_1.show()
+    strip_2.show()
+    strip_3.show()
 
 while True:
     # First Time through the Loop do this
